@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connectiva - Conectando o Mundo Real</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Exo 2', sans-serif;
+      background: #0f0f0f;
+      color: #f0f0f0;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(15, 15, 15, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff5c00;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff5c00;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    .buttons a {
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+    .central {
+      background: #333;
+    }
+    .conectar {
+      background: #ff5c00;
+    }
+    .spacer {
+      height: 80px;
+    }
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ff5c00;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Connectiva</div>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#planos">Planos</a>
+      <a href="#cidades">Cidades</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="buttons">
+      <a class="central" href="https://youconnectfibra.sgp.net.br/central" target="_blank">Central do Assinante</a>
+      <a class="conectar" href="https://wa.me/5543988188281" target="_blank">Quero Me Conectar</a>
+    </div>
+  </header>
+
+  <div class="spacer" id="inicio"></div>
+
+  <section>
+    <h1>Conectando o Mundo Real</h1>
+    <p>Fibra óptica de alta velocidade com uma experiência única</p>
+  </section>
+
+  <section id="planos">
+    <h1>Planos</h1>
+    <p>Em breve, informações dos nossos planos com cobertura nacional</p>
+  </section>
+
+  <section id="cidades">
+    <h1>Cidades Atendidas</h1>
+    <p>Cândido de Abreu, Turvo, Bom Sucesso e novas em expansão.</p>
+  </section>
+
+  <section id="contato">
+    <h1>Fale com a Connectiva</h1>
+    <p>Nosso atendimento é rápido e humano. Estamos prontos pra te conectar.</p>
+  </section>
+
+</body>
+</html>
