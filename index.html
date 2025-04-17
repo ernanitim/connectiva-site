@@ -12,6 +12,78 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
+
+  <header class="menu-fixo">
+    <div class="menu-container">
+      <div class="logo">Connectiva</div>
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#planos">Planos</a>
+        <a href="#cobertura">Cobertura</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="botoes">
+        <a class="central" href="https://youconnectfibra.sgp.net.br/central" target="_blank">Central do Assinante</a>
+        <a class="conectar" href="https://wa.me/5543988188281" target="_blank">Quero Me Conectar</a>
+      </div>
+    </div>
+  </header>
+  <style>
+    .menu-fixo {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 15, 15, 0.95);
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    .menu-container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .menu-fixo .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff5c00;
+    }
+    .menu-fixo nav {
+      display: flex;
+      gap: 2rem;
+    }
+    .menu-fixo nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .menu-fixo .botoes {
+      display: flex;
+      gap: 1rem;
+    }
+    .menu-fixo .botoes a {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+    }
+    .menu-fixo .central {
+      background: #333;
+    }
+    .menu-fixo .conectar {
+      background: #ff5c00;
+    }
+    body {
+      scroll-padding-top: 100px;
+    }
+  </style>
+
   <!-- Fundo de partículas -->
   <div id="particles-js"></div>
   
