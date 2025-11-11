@@ -119,36 +119,45 @@
   }
 </style>
 
-<!-- ÍCONES DO HERO -->
+<!-- ÍCONES DO HERO (SVG) -->
 <style>
   .hero-icons {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    margin: 1.5rem 0 1.25rem;
+    gap: 2.5rem;
+    margin: 1.7rem 0 1.4rem;
     flex-wrap: wrap;
   }
   .hero-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 0.85rem;
-    color: #f0f0f0;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: #d0d0d0;
+    text-transform: uppercase;
   }
-  .hero-icon-circle {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.4rem;
-    background: radial-gradient(circle at 0 0, #ff5c00, #00aaff);
-    box-shadow: 0 0 12px rgba(0, 170, 255, 0.35);
+  .hero-icon svg {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0.45rem;
   }
-  .hero-icon-circle span {
-    font-size: 1.2rem;
+  .hero-icon svg path,
+  .hero-icon svg circle,
+  .hero-icon svg line,
+  .hero-icon svg rect {
+    fill: none;
+    stroke-width: 2.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .hero-icon svg.fibra,
+  .hero-icon svg.radio {
+    stroke: #ff5c00;
+  }
+  .hero-icon svg.movel,
+  .hero-icon svg.streaming {
+    stroke: #00aaff;
   }
 </style>
 
@@ -245,12 +254,14 @@
     font-weight: 700;
     color: #ff5c00;
     font-size: 1rem;
+    text-align: right;
   }
 
   .plan-line .price span {
     font-size: 0.85rem;
     color: #aaaaaa;
     font-weight: 400;
+    display: block;
   }
 
   .plan-line small {
@@ -263,6 +274,9 @@
   @media (max-width: 600px) {
     .plan-line {
       align-items: flex-start;
+    }
+    .plan-line .price {
+      text-align: left;
     }
   }
 </style>
@@ -301,27 +315,49 @@
 
     <div class="hero-icons">
       <div class="hero-icon">
-        <div class="hero-icon-circle">
-          <span>⚡</span>
-        </div>
+        <svg class="fibra" viewBox="0 0 64 64" aria-hidden="true">
+          <!-- Fibra: vários filamentos com pontinhos -->
+          <path d="M18 40 L10 54" />
+          <line x1="22" y1="38" x2="18" y2="54" />
+          <line x1="28" y1="38" x2="26" y2="54" />
+          <line x1="34" y1="38" x2="34" y2="54" />
+          <line x1="40" y1="38" x2="42" y2="54" />
+          <circle cx="18" cy="38" r="2.4" />
+          <circle cx="24" cy="36" r="2.4" />
+          <circle cx="30" cy="36" r="2.4" />
+          <circle cx="36" cy="36" r="2.4" />
+          <circle cx="42" cy="38" r="2.4" />
+        </svg>
         <span>Fibra</span>
       </div>
+
       <div class="hero-icon">
-        <div class="hero-icon-circle">
-          <span>📡</span>
-        </div>
+        <svg class="radio" viewBox="0 0 64 64" aria-hidden="true">
+          <!-- Rádio: ondas de Wi-Fi -->
+          <circle cx="32" cy="44" r="4" />
+          <path d="M24 36a12 12 0 0 1 16 0" />
+          <path d="M20 30a18 18 0 0 1 24 0" />
+          <path d="M16 24a24 24 0 0 1 32 0" />
+        </svg>
         <span>Rádio</span>
       </div>
+
       <div class="hero-icon">
-        <div class="hero-icon-circle">
-          <span>📱</span>
-        </div>
+        <svg class="movel" viewBox="0 0 64 64" aria-hidden="true">
+          <!-- Móvel: smartphone -->
+          <rect x="22" y="10" width="20" height="44" rx="4" ry="4" />
+          <line x1="22" y1="18" x2="42" y2="18" />
+          <circle cx="32" cy="46" r="2.5" />
+        </svg>
         <span>Móvel</span>
       </div>
+
       <div class="hero-icon">
-        <div class="hero-icon-circle">
-          <span>🎬</span>
-        </div>
+        <svg class="streaming" viewBox="0 0 64 64" aria-hidden="true">
+          <!-- Streaming: círculo com play -->
+          <circle cx="32" cy="32" r="18" />
+          <path d="M28 24 L40 32 L28 40 Z" />
+        </svg>
         <span>Streaming</span>
       </div>
     </div>
@@ -338,441 +374,4 @@
     <div class="carrossel-wrapper">
       <div class="carrossel-slides" id="slides">
         <div class="carrossel-item"><h3>🚀 CONECTAMOS VELOCIDADE</h3><p>Sem limites, sem travamentos. Porque tempo é vida.</p></div>
-        <div class="carrossel-item"><h3>👨‍💻 SUPORTE DE VERDADE</h3><p>Fale com pessoas. Sem robôs, sem enrolação.</p></div>
-        <div class="carrossel-item"><h3>🌾 CONECTIVIDADE RURAL</h3><p>Levamos internet onde ninguém mais chega.</p></div>
-        <div class="carrossel-item"><h3>🎮 PARA OS GAMERS</h3><p>Ping baixo, latência mínima. A vitória começa na rede.</p></div>
-        <div class="carrossel-item"><h3>🌍 VISÃO DE FUTURO</h3><p>A Connectiva é mais do que internet. É movimento.</p></div>
-      </div>
-      <button class="nav prev" onclick="navegar(-1)">❮</button>
-      <button class="nav next" onclick="navegar(1)">❯</button>
-    </div>
-  </div>
-  <style>
-    .carrossel-item h3 {
-      font-size: 1.6rem;
-      color: #ff5c00;
-      margin-bottom: 0.5rem;
-    }
-    .carrossel-item p {
-      font-size: 1.1rem;
-      color: #f0f0f0;
-      max-width: 600px;
-      text-align: center;
-    }
-  </style>
-</section>
-
-<!-- Quem Somos -->
-<section class="about glass-card">
-  <div class="container">
-    <h2>Quem Somos</h2>
-    <div class="about-content">
-      <p>A Connectiva não é apenas um provedor de internet — somos o sistema nervoso digital das comunidades. Nossa missão é transformar a maneira como as pessoas se conectam, trazendo tecnologia de ponta para cada lar, negócio e espaço público.</p>
-      <p>Com infraestrutura de última geração e um compromisso inabalável com a qualidade, estamos redefinindo o que significa estar verdadeiramente conectado no mundo digital de hoje.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Planos -->
-<section class="plans" id="planos">
-  <div class="container">
-    <h2>Planos de Conectividade</h2>
-    <p class="plans-subtitle">Escolha o plano ideal e sinta a liberdade de estar conectado aonde a vida te levar.</p>
-
-    <!-- Nível 1: categorias principais -->
-    <div class="plans-tabs-level1">
-      <button class="tab-button active" data-tab="residencial">Residencial</button>
-      <button class="tab-button" data-tab="comercial">Comercial</button>
-      <button class="tab-button" data-tab="movel">Móvel</button>
-      <button class="tab-button" data-tab="streaming">Streaming</button>
-      <button class="tab-button" data-tab="combos">Combos</button>
-    </div>
-
-    <div class="plans-panels">
-      <!-- RESIDENCIAL -->
-      <div class="tab-panel active" id="tab-residencial">
-        <div class="plans-tabs-level2">
-          <button class="subtab-button active" data-subtab="residencial-fibra">Fibra</button>
-          <button class="subtab-button" data-subtab="residencial-radio">Rádio</button>
-        </div>
-
-        <!-- RESIDENCIAL FIBRA -->
-        <div class="subtab-panel active" id="subtab-residencial-fibra">
-          <div class="plans-list">
-            <div class="plan-line">
-              <div>
-                <h3>Connectiva Start</h3>
-                <p>250 MB download / 250 MB upload</p>
-                <small>Perfeito para famílias que usam streaming, redes sociais e chamadas de vídeo.</small>
-              </div>
-              <div class="price">
-                R$ 89,90<span>/mês</span>
-              </div>
-            </div>
-
-            <div class="plan-line">
-              <div>
-                <h3>Connectiva Prime</h3>
-                <p>550 MB download / 550 MB upload</p>
-                <small>Mais velocidade para quem trabalha em casa, joga online e assiste em 4K.</small>
-              </div>
-              <div class="price">
-                R$ 119,90<span>/mês</span>
-              </div>
-            </div>
-
-            <div class="plan-line">
-              <div>
-                <h3>Connectiva Infinity</h3>
-                <p>1 GB download / 500 MB upload</p>
-                <small>Para quem quer a experiência máxima de conectividade na casa toda.</small>
-              </div>
-              <div class="price">
-                R$ 189,90<span>/mês</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- RESIDENCIAL RÁDIO -->
-        <div class="subtab-panel" id="subtab-residencial-radio">
-          <div class="plans-list">
-            <div class="plan-line">
-              <div>
-                <h3>Plano 30 MB</h3>
-                <p>30 MB download / 15 MB upload</p>
-                <small>Para navegação, redes sociais e streaming em dispositivos pontuais.</small>
-              </div>
-              <div class="price">
-                R$ 89,90<span>/mês</span>
-              </div>
-            </div>
-
-            <div class="plan-line">
-              <div>
-                <h3>Plano 60 MB</h3>
-                <p>60 MB download / 30 MB upload</p>
-                <small>Mais folga para quem usa vários aparelhos ao mesmo tempo.</small>
-              </div>
-              <div class="price">
-                R$ 99,90<span>/mês</span>
-              </div>
-            </div>
-
-            <div class="plan-line">
-              <div>
-                <h3>Plano 100 MB</h3>
-                <p>100 MB download / 50 MB upload</p>
-                <small>Ideal para casas maiores e usuários mais exigentes.</small>
-              </div>
-              <div class="price">
-                R$ 139,90<span>/mês</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- COMERCIAL -->
-      <div class="tab-panel" id="tab-comercial">
-        <div class="plans-list">
-          <div class="plan-line">
-            <div>
-              <h3>Planos Comerciais em Fibra e Rádio</h3>
-              <p>Desempenho, estabilidade e suporte prioritário para o seu negócio.</p>
-              <small>Entre em contato com nossa equipe para uma proposta personalizada para a sua empresa.</small>
-            </div>
-            <div class="price">
-              Sob consulta
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MÓVEL -->
-      <div class="tab-panel" id="tab-movel">
-        <div class="plans-list">
-          <div class="plan-line">
-            <div>
-              <h3>Connectiva Move</h3>
-              <p>Planos móveis pensados para acompanhar você onde a vida te levar.</p>
-              <small>Em breve aqui no site. Fale com nossa equipe para saber mais sobre os planos disponíveis.</small>
-            </div>
-            <div class="price">
-              Em breve
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- STREAMING -->
-      <div class="tab-panel" id="tab-streaming">
-        <div class="plans-list">
-          <div class="plan-line">
-            <div>
-              <h3>Planos com Streaming</h3>
-              <p>Integração com os melhores serviços de conteúdo para você assistir sem travar.</p>
-              <small>Em breve você verá aqui todos os detalhes dos combos com streaming.</small>
-            </div>
-            <div class="price">
-              Em breve
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- COMBOS -->
-      <div class="tab-panel" id="tab-combos">
-        <div class="plans-list">
-          <div class="plan-line">
-            <div>
-              <h3>Combos Connectiva HUB</h3>
-              <p>Internet + Móvel + Streaming em uma experiência completa de conectividade.</p>
-              <small>Estamos preparando combos especiais. Enquanto isso, fale com nossa equipe e monte o combo ideal para você.</small>
-            </div>
-            <div class="price">
-              Em breve
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Para quem é -->
-<section class="for-who glass-card">
-  <div class="container">
-    <h2>Para quem é a Connectiva</h2>
-    <div class="audience-grid">
-      <div class="audience-item">
-        <div class="audience-icon pulsing">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-        </div>
-        <h3>Famílias</h3>
-        <p>Conexão estável para todos os dispositivos da casa, com controle parental e segurança.</p>
-      </div>
-      <div class="audience-item">
-        <div class="audience-icon pulsing">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-        </div>
-        <h3>Gamers</h3>
-        <p>Baixa latência e alta velocidade para uma experiência de jogo sem interrupções.</p>
-      </div>
-      <div class="audience-item">
-        <div class="audience-icon pulsing">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-        </div>
-        <h3>Empreendedores</h3>
-        <p>Soluções empresariais escaláveis que crescem junto com seu negócio.</p>
-      </div>
-      <div class="audience-item">
-        <div class="audience-icon pulsing">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-        </div>
-        <h3>Área Rural</h3>
-        <p>Tecnologia que leva internet de qualidade onde outros não chegam.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Mapa de Cobertura -->
-<section class="coverage-map" id="cobertura">
-  <div class="container">
-    <h2>Nossa Cobertura</h2>
-    <p>Já conectamos centenas de famílias em toda a região</p>
-    <div class="map-container">
-      <div class="map">
-        <!-- Mapa interativo será adicionado via JavaScript -->
-        <div class="hotspot" style="top: 30%; left: 20%"></div>
-        <div class="hotspot" style="top: 45%; left: 35%"></div>
-        <div class="hotspot" style="top: 25%; left: 60%"></div>
-        <div class="hotspot" style="top: 60%; left: 50%"></div>
-        <div class="hotspot" style="top: 70%; left: 25%"></div>
-        <div class="hotspot" style="top: 40%; left: 80%"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contato -->
-<section class="contact glass-card" id="contato">
-  <div class="container">
-    <h2>Entre em Contato</h2>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p>Estamos prontos para atender você e responder todas as suas dúvidas.</p>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-          <span>(43) 98818-8281</span>
-        </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-          <span>contato@connectiva.com.br</span>
-        </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-          <span>Av. Tecnologia, 1234 - Centro</span>
-        </div>
-      </div>
-      <div class="social-media">
-        <a class="social-icon" href="#">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-        </a>
-        <a class="social-icon" href="#">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-        </a>
-        <a class="social-icon" href="#">
-          <svg viewBox="0 0 24 24">
-            <!-- Ícone SVG será adicionado via CSS -->
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Rodapé -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-logo">
-        <svg height="40" id="footer-logo-svg" viewBox="0 0 120 40" width="120">
-          <!-- Logo SVG será adicionado via JavaScript -->
-        </svg>
-        <p>Conectando o futuro hoje</p>
-      </div>
-      <div class="footer-links">
-        <h4>Links Rápidos</h4>
-        <ul>
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#sobre">Sobre Nós</a></li>
-          <li><a href="#planos">Planos</a></li>
-          <li><a href="#cobertura">Cobertura</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Suporte</h4>
-        <ul>
-          <li><a href="#">Central de Ajuda</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Velocímetro</a></li>
-          <li><a href="https://connectivahub.sgp.tsmx.com.br/accounts/central/login" target="_blank">Área do Cliente</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Connectiva Telecom - Todos os direitos reservados</p>
-      <p>@connectivatelecom | (43) 98818-8281</p>
-    </div>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
-
-<!-- Script das abas de planos -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Abas principais
-    const tabButtons = document.querySelectorAll('.plans-tabs-level1 .tab-button');
-    const tabPanels = document.querySelectorAll('.plans-panels .tab-panel');
-
-    tabButtons.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        const target = btn.dataset.tab;
-        tabButtons.forEach(b => b.classList.remove('active'));
-        tabPanels.forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        const panel = document.getElementById('tab-' + target);
-        if (panel) panel.classList.add('active');
-      });
-    });
-
-    // Sub-abas (fibra / rádio) dentro de cada painel
-    const allSubtabButtons = document.querySelectorAll('.plans-tabs-level2 .subtab-button');
-
-    allSubtabButtons.forEach(function(subBtn) {
-      subBtn.addEventListener('click', function() {
-        const target = subBtn.dataset.subtab;
-        const parentPanel = subBtn.closest('.tab-panel');
-        if (!parentPanel) return;
-
-        const buttonsInPanel = parentPanel.querySelectorAll('.subtab-button');
-        const panelsInPanel = parentPanel.querySelectorAll('.subtab-panel');
-
-        buttonsInPanel.forEach(b => b.classList.remove('active'));
-        panelsInPanel.forEach(p => p.classList.remove('active'));
-
-        subBtn.classList.add('active');
-        const targetPanel = parentPanel.querySelector('#subtab-' + target);
-        if (targetPanel) targetPanel.classList.add('active');
-      });
-    });
-  });
-</script>
-
-<div class="botoes-flutuantes">
-  <a class="whats-btn" href="https://wa.me/5543988188281" target="_blank" title="Fale pelo WhatsApp">
-    <img alt="WhatsApp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png"/>
-  </a>
-  <a class="chat-btn" href="#" title="Chat Online (em breve)">
-    <img alt="Chat" src="https://cdn-icons-png.flaticon.com/512/5974/5974636.png"/>
-  </a>
-</div>
-
-<style>
-  .botoes-flutuantes {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 1001;
-  }
-  .botoes-flutuantes a {
-    display: flex;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(4px);
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .botoes-flutuantes a:hover {
-    transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.15);
-  }
-  .botoes-flutuantes img {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
-  }
-</style>
-
-</body>
-</html>
+        <div class="carrossel-i
