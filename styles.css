@@ -934,7 +934,11 @@ footer::before {
   width: 24px;
   height: 24px;
   margin-right: 1rem;
-  fill: var(--primary);
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .social-media {
@@ -962,5 +966,9 @@ footer::before {
 .social-icon svg {
   width: 20px;
   height: 20px;
-  fill: white;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
