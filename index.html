@@ -204,11 +204,19 @@
     transition: all 0.2s ease;
   }
 
+  /* AQUI é o que você precisa alterar 👇 */
   .tab-button.active,
   .subtab-button.active {
-    background: linear-gradient(90deg, #ff5c00, #00aaff);
-    border-color: transparent;
-    box-shadow: 0 0 14px rgba(0, 170, 255, 0.4);
+    background: #ff5c00;
+    color: #ffffff;
+    border-color: #ff5c00;
+    box-shadow: 0 0 12px rgba(255, 92, 0, 0.35);
+  }
+
+  .tab-button:not(.active):hover,
+  .subtab-button:not(.active):hover {
+    border-color: #ff5c00;
+    color: #ff5c00;
   }
 
   .plans-panels {
