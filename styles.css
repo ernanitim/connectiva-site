@@ -910,3 +910,17 @@ footer::before {
   }
 }
 
+/* Botões de planos – estilo atualizado */
+.tab-button.active,
+.subtab-button.active {
+  background: #ff5c00;
+  color: #ffffff;
+  border-color: #ff5c00;
+  box-shadow: 0 0 12px rgba(255, 92, 0, 0.35);
+}
+
+.tab-button:not(.active):hover,
+.subtab-button:not(.active):hover {
+  border-color: #ff5c00;
+  color: #ff5c00;
+}
