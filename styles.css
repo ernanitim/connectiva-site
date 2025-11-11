@@ -972,3 +972,30 @@ footer::before {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.social-icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon svg {
+  transition: transform 0.25s ease, stroke 0.25s ease;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.08);
+  stroke: #ff5c00;           /* traço laranja no hover */
+}
+
+.social-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(255, 92, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.social-icon:hover::after {
+  opacity: 1;
+}
