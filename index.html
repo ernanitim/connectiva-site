@@ -171,6 +171,7 @@
 </style>
 
 <!-- ESTILO DAS ABAS DE PLANOS -->
+<!-- ESTILO DAS ABAS DE PLANOS -->
 <style>
   .plans {
     position: relative;
@@ -203,9 +204,8 @@
     font-size: 0.9rem;
     transition: all 0.2s ease;
   }
-/* Refinamento visual das abas de planos */
-  <style>
-  /* estilo dos botões laranja */
+
+  /* Botões ativos em laranja */
   .tab-button.active,
   .subtab-button.active {
     background: #ff5c00;
@@ -219,10 +219,10 @@
     border-color: #ff5c00;
     color: #ff5c00;
   }
-</style>
 
-<style>
   /* Refinamento visual das abas de planos */
+
+  /* Nível 1 – categorias principais (Residencial, Comercial, etc.) */
   .plans-tabs-level1 .tab-button {
     font-size: 0.95rem;
     padding: 0.55rem 1.1rem;
@@ -235,6 +235,7 @@
     transform: translateY(-1px);
   }
 
+  /* Nível 2 – subcategorias (Fibra / Rádio) */
   .plans-tabs-level2 .subtab-button {
     font-size: 0.85rem;
     padding: 0.35rem 0.9rem;
@@ -246,57 +247,11 @@
     box-shadow: 0 0 8px rgba(255, 92, 0, 0.25);
   }
 
+  /* Hover um pouco mais discreto nas sub-abas */
   .plans-tabs-level2 .subtab-button:not(.active):hover {
     border-color: #ff5c00;
     color: #ff5c00;
     opacity: 1;
-  }
-</style>
-
-/* Nível 1 – categorias principais (Residencial, Comercial, etc.) */
-.plans-tabs-level1 .tab-button {
-  font-size: 0.95rem;
-  padding: 0.55rem 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.plans-tabs-level1 .tab-button.active {
-  box-shadow: 0 0 16px rgba(255, 92, 0, 0.45);
-  transform: translateY(-1px);
-}
-
-/* Nível 2 – subcategorias (Fibra / Rádio) */
-.plans-tabs-level2 .subtab-button {
-  font-size: 0.85rem;
-  padding: 0.35rem 0.9rem;
-  opacity: 0.85;
-}
-
-.plans-tabs-level2 .subtab-button.active {
-  opacity: 1;
-  box-shadow: 0 0 8px rgba(255, 92, 0, 0.25);
-}
-
-/* Hover um pouco mais discreto nas sub-abas */
-.plans-tabs-level2 .subtab-button:not(.active):hover {
-  border-color: #ff5c00;
-  color: #ff5c00;
-  opacity: 1;
-}
-  /* AQUI é o que você precisa alterar 👇 */
-  .tab-button.active,
-  .subtab-button.active {
-    background: #ff5c00;
-    color: #ffffff;
-    border-color: #ff5c00;
-    box-shadow: 0 0 12px rgba(255, 92, 0, 0.35);
-  }
-
-  .tab-button:not(.active):hover,
-  .subtab-button:not(.active):hover {
-    border-color: #ff5c00;
-    color: #ff5c00;
   }
 
   .plans-panels {
