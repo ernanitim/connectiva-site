@@ -697,7 +697,16 @@
 <!-- Script das abas de planos -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Abas principais
+    // ANIMAÇÃO SIMPLES DOS ÍCONES DO HERO
+    const heroIcons = document.querySelector('.hero-icons');
+    if (heroIcons) {
+      // espera um tempo para o título + frase entrarem
+      setTimeout(() => {
+        heroIcons.classList.add('show');
+      }, 1500); // se quiser mais tarde ou mais cedo, ajusta esse valor
+    }
+
+    // ABAS PRINCIPAIS DOS PLANOS
     const tabButtons = document.querySelectorAll('.plans-tabs-level1 .tab-button');
     const tabPanels = document.querySelectorAll('.plans-panels .tab-panel');
 
@@ -712,7 +721,7 @@
       });
     });
 
-    // Sub-abas (fibra / rádio) dentro de cada painel
+    // SUB-ABAS (fibra / rádio) DENTRO DO RESIDENCIAL
     const allSubtabButtons = document.querySelectorAll('.plans-tabs-level2 .subtab-button');
 
     allSubtabButtons.forEach(function(subBtn) {
@@ -734,6 +743,7 @@
     });
   });
 </script>
+
 
 <div class="botoes-flutuantes">
   <a class="whats-btn" href="https://wa.me/5543988188281" target="_blank" title="Fale pelo WhatsApp">
