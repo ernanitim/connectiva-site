@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+html = """<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Connectiva — Infraestrutura Digital</title>
   <meta name="description" content="Infraestrutura digital para cidades e campo. Internet fibra, rural e empresarial com suporte humano e presença regional." />
+
   <style>
     :root{
       --bg:#0b0f16;
@@ -23,6 +26,7 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       background:
@@ -37,6 +41,8 @@
     }
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* Header */
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
@@ -48,7 +54,10 @@
       padding:14px 0;
       gap:12px;
     }
-    .brand{display:flex; align-items:center; gap:12px; min-width: 220px;}
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
+    }
     .logo{
       width:40px;height:40px;border-radius:12px;
       background:
@@ -57,7 +66,8 @@
         linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
       border: 1px solid rgba(255,255,255,.12);
       box-shadow: var(--glow);
-      position:relative; overflow:hidden;
+      position:relative;
+      overflow:hidden;
     }
     .logo:before{
       content:"";
@@ -68,9 +78,16 @@
       opacity:.9;
     }
     @keyframes spin{to{transform:rotate(360deg)}}
-    .brand h1{margin:0; font-size:14px; line-height:1.1; font-weight:800; letter-spacing:.9px; text-transform:uppercase;}
+    .brand h1{
+      margin:0; font-size:14px; line-height:1.1; font-weight:800; letter-spacing:.9px;
+      text-transform:uppercase;
+    }
     .brand span{display:block;color:var(--muted); font-size:12px; font-weight:600; margin-top:4px}
-    .links{display:flex; gap:14px; align-items:center; justify-content:center; flex:1;}
+
+    .links{
+      display:flex; gap:14px; align-items:center; justify-content:center;
+      flex:1;
+    }
     .links a{
       color: rgba(232,238,252,.84);
       font-weight:650;
@@ -80,7 +97,11 @@
       border: 1px solid transparent;
       transition:.18s ease;
     }
-    .links a:hover{border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.03);}
+    .links a:hover{
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+    }
+
     .actions{display:flex; gap:10px; align-items:center; min-width: 220px; justify-content:flex-end}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -103,11 +124,23 @@
       box-shadow: 0 18px 58px rgba(255,106,0,.22);
     }
     .btn.primary:hover{background: linear-gradient(135deg, rgba(255,106,0,1), rgba(255,106,0,.60));}
-    .btn.ghost{border-color: rgba(77,227,255,.22); background: rgba(77,227,255,.05);}
-    .icon{width:16px; height:16px; display:inline-block; opacity:.95;}
+    .btn.ghost{
+      border-color: rgba(77,227,255,.22);
+      background: rgba(77,227,255,.05);
+    }
+    .icon{
+      width:16px; height:16px; display:inline-block;
+      opacity:.95;
+    }
 
+    /* Hero */
     .hero{padding: 72px 0 46px; position:relative;}
-    .heroGrid{display:grid; grid-template-columns: 1.25fr .9fr; gap: 28px; align-items:stretch;}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap: 28px;
+      align-items:stretch;
+    }
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
       padding: 8px 12px;
@@ -121,8 +154,18 @@
       text-transform:uppercase;
       width:fit-content;
     }
-    .dot{width:8px; height:8px; border-radius:99px; background: radial-gradient(circle at 30% 30%, var(--cyan), rgba(77,227,255,.12)); box-shadow: 0 0 24px rgba(77,227,255,.38);}
-    .title{font-size: clamp(34px, 4.6vw, 56px); line-height: 1.03; margin: 14px 0 14px; font-weight: 900; letter-spacing: -1px;}
+    .dot{
+      width:8px; height:8px; border-radius:99px;
+      background: radial-gradient(circle at 30% 30%, var(--cyan), rgba(77,227,255,.12));
+      box-shadow: 0 0 24px rgba(77,227,255,.38);
+    }
+    .title{
+      font-size: clamp(34px, 4.6vw, 56px);
+      line-height: 1.03;
+      margin: 14px 0 14px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
     .title em{
       font-style: normal;
       background: linear-gradient(90deg, rgba(77,227,255,.95), rgba(255,106,0,.92));
@@ -131,9 +174,20 @@
       color: transparent;
       filter: drop-shadow(0 0 24px rgba(77,227,255,.12));
     }
-    .sub{color: rgba(167,178,204,.96); font-size: 16px; line-height: 1.55; max-width: 58ch; margin: 0 0 18px;}
+    .sub{
+      color: rgba(167,178,204,.96);
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 58ch;
+      margin: 0 0 18px;
+    }
     .heroCtas{display:flex; gap:12px; flex-wrap:wrap; margin: 18px 0 18px}
-    .micro{display:flex; gap:16px; flex-wrap:wrap; margin-top: 14px; color: rgba(167,178,204,.9); font-weight:700; font-size:12.5px;}
+    .micro{
+      display:flex; gap:16px; flex-wrap:wrap; margin-top: 14px;
+      color: rgba(167,178,204,.9);
+      font-weight:700;
+      font-size:12.5px;
+    }
     .micro div{display:flex; align-items:center; gap:8px}
     .check{
       width:18px;height:18px;border-radius: 999px;
@@ -216,21 +270,49 @@
       box-shadow: var(--glow);
     }
 
+    /* Sections */
     section{padding: 54px 0}
-    .sectionTitle{font-size: 26px; margin: 0 0 8px; font-weight: 900; letter-spacing: -.5px;}
-    .sectionSub{margin: 0 0 22px; color: rgba(167,178,204,.96); line-height: 1.55; max-width: 70ch; font-weight:650;}
-    .cards{display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px;}
+    .sectionTitle{
+      font-size: 26px;
+      margin: 0 0 8px;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+    .sectionSub{
+      margin: 0 0 22px;
+      color: rgba(167,178,204,.96);
+      line-height: 1.55;
+      max-width: 70ch;
+      font-weight:650;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
     .card{
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.10);
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       padding: 16px;
       box-shadow: 0 14px 46px rgba(0,0,0,.34);
+      position:relative;
+      overflow:hidden;
       transition: transform .16s ease, border-color .16s ease, background .16s ease;
     }
     .card:hover{transform: translateY(-2px); border-color: rgba(255,255,255,.16); background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));}
-    .card h3{margin: 12px 0 8px; font-size: 15px; font-weight: 900;}
-    .card p{margin: 0; color: rgba(167,178,204,.95); line-height: 1.55; font-weight:650; font-size: 13px;}
+    .card h3{
+      margin: 12px 0 8px;
+      font-size: 15px;
+      font-weight: 900;
+    }
+    .card p{
+      margin: 0;
+      color: rgba(167,178,204,.95);
+      line-height: 1.55;
+      font-weight:650;
+      font-size: 13px;
+    }
     .badge{
       width:44px;height:44px;border-radius: 16px;
       border: 1px solid rgba(255,255,255,.12);
@@ -240,7 +322,12 @@
     }
     .badge svg{width:20px;height:20px; opacity:.95}
 
-    .plans{display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px;}
+    /* Plans */
+    .plans{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
     .plan{
       border-radius: var(--radius2);
       border: 1px solid rgba(255,255,255,.12);
@@ -249,6 +336,7 @@
         linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
       padding: 18px;
       box-shadow: var(--shadow);
+      position:relative;
       overflow:hidden;
     }
     .plan.featured{
@@ -273,16 +361,31 @@
       white-space:nowrap;
     }
     .tag.hot{border-color: rgba(255,106,0,.45); background: rgba(255,106,0,.10)}
-    .price{margin-top: 10px; display:flex; align-items:baseline; gap:8px;}
+    .price{
+      margin-top: 10px;
+      display:flex; align-items:baseline; gap:8px;
+    }
     .price strong{font-size: 34px; font-weight: 950; letter-spacing: -1px}
     .price span{color: rgba(167,178,204,.95); font-weight:800}
     .plan ul{margin: 14px 0 16px; padding: 0; list-style:none; display:grid; gap:10px}
     .plan li{display:flex; align-items:flex-start; gap:10px; color: rgba(167,178,204,.95); font-weight:700}
     .plan li svg{width:16px;height:16px; margin-top:2px; opacity:.95}
     .plan .btn{width:100%}
-    .fine{margin-top: 10px; color: rgba(167,178,204,.82); font-size: 11.5px; line-height: 1.45; font-weight: 650;}
+    .fine{
+      margin-top: 10px;
+      color: rgba(167,178,204,.82);
+      font-size: 11.5px;
+      line-height: 1.45;
+      font-weight: 650;
+    }
 
-    .split{display:grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch;}
+    /* Split infra/campo */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
     .panel{
       border-radius: var(--radius2);
       border: 1px solid rgba(255,255,255,.12);
@@ -291,6 +394,8 @@
         linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
       padding: 18px;
+      position:relative;
+      overflow:hidden;
     }
     .panel.orange{
       background:
@@ -312,6 +417,7 @@
     }
     .bullets svg{width:14px;height:14px; opacity:.95}
 
+    /* Testimonials */
     .testis{display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px}
     .quote{
       border-radius: var(--radius2);
@@ -326,7 +432,10 @@
     .who strong{display:block; font-weight:950; font-size: 13px}
     .who span{display:block; color: rgba(167,178,204,.9); font-weight:700; font-size: 12px; margin-top:3px}
 
-    .coverage{display:grid; grid-template-columns: 1.1fr .9fr; gap: 14px; align-items: stretch;}
+    /* Coverage */
+    .coverage{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap: 14px; align-items: stretch;
+    }
     .map{
       border-radius: var(--radius2);
       border: 1px solid rgba(255,255,255,.12);
@@ -335,6 +444,8 @@
         linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
       padding: 18px;
+      position:relative;
+      overflow:hidden;
       min-height: 280px;
     }
     .map svg{width:100%; height:100%; opacity:.95}
@@ -358,6 +469,7 @@
       font-size: 12px;
     }
 
+    /* CTA */
     .cta{
       border-radius: 26px;
       border: 1px solid rgba(255,255,255,.12);
@@ -371,6 +483,8 @@
       align-items:center;
       justify-content:space-between;
       gap:14px;
+      overflow:hidden;
+      position:relative;
     }
     .cta h3{margin:0; font-size: 20px; font-weight: 950}
     .cta p{margin:6px 0 0; color: rgba(167,178,204,.95); font-weight:650; line-height:1.55; max-width: 70ch}
@@ -380,23 +494,37 @@
       border-top: 1px solid var(--line);
       background: rgba(0,0,0,.10);
     }
-    .foot{display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 14px; align-items:start;}
+    .foot{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 14px;
+      align-items:start;
+    }
     .foot h4{margin: 0 0 10px; font-size: 13px; font-weight: 950; letter-spacing:.4px; text-transform:uppercase; color: rgba(232,238,252,.9)}
-    .foot p, .foot a{margin: 0; color: rgba(167,178,204,.92); font-weight:650; line-height:1.7; font-size: 13px;}
+    .foot p, .foot a{
+      margin: 0;
+      color: rgba(167,178,204,.92);
+      font-weight:650;
+      line-height:1.7;
+      font-size: 13px;
+    }
     .muted{color: rgba(167,178,204,.92)}
     .small{margin-top: 18px; font-size: 12px; color: rgba(167,178,204,.78); font-weight:650}
 
+    /* Responsive */
     @media (max-width: 980px){
       .heroGrid{grid-template-columns: 1fr}
-      .links{display:none}
       .cards{grid-template-columns: 1fr 1fr}
       .plans{grid-template-columns: 1fr}
       .split{grid-template-columns: 1fr}
       .testis{grid-template-columns: 1fr}
       .coverage{grid-template-columns: 1fr}
-      .cta{flex-direction:column; align-items:flex-start}
       .actions{min-width:auto}
       .brand{min-width:auto}
+      .cta{flex-direction:column; align-items:flex-start}
+    }
+    @media (max-width: 720px){
+      .links{display:none}
     }
     @media (max-width: 520px){
       .cards{grid-template-columns: 1fr}
@@ -404,53 +532,43 @@
       .actions{display:none}
       .hero{padding-top: 44px}
     }
-    html{scroll-behavior:smooth}
   </style>
 </head>
+
 <body>
 
-  <div class="topbar">
+  <!-- HEADER (atualizado conforme pedido) -->
+  <div class="topbar" id="inicio">
     <div class="wrap">
       <div class="nav">
-        <div class="brand">
+        <a class="brand" href="#inicio" aria-label="Ir para o início">
           <div class="logo" aria-hidden="true"></div>
           <div>
             <h1>CONNECTIVA</h1>
             <span>Infraestrutura • Campo • Pessoas</span>
           </div>
-        </div>
+        </a>
 
-        <div class="links" aria-label="Navegação principal">
-          <a href="#beneficios">Por que Connectiva</a>
+        <nav class="links" aria-label="Navegação principal">
+          <a href="#inicio">Início</a>
           <a href="#planos">Planos</a>
-          <a href="#infra">Infraestrutura</a>
-          <a href="#campo">No Campo</a>
           <a href="#cobertura">Cobertura</a>
-        </div>
+        </nav>
 
         <div class="actions">
-          <a class="btn ghost" href="#cobertura">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 0 1 18 0Z"></path>
-                <path d="M12 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-              </svg>
-            </span>
-            Ver cobertura
+          <a class="btn ghost" href="https://connectivahub.sgp.tsmx.com.br/accounts/central/login" target="_blank" rel="noopener">
+            Central do Assinante
           </a>
-          <a class="btn primary" href="#whatsapp">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.59 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.11a2 2 0 0 1 2.11-.45c.8.27 1.64.47 2.5.59A2 2 0 0 1 22 16.92Z"></path>
-              </svg>
-            </span>
-            Contratar no WhatsApp
+
+          <a class="btn primary" href="https://wa.me/5543988188281?text=Ol%C3%A1%21%20Quero%20me%20conectar%20com%20a%20Connectiva.%20Pode%20me%20ajudar%20com%20disponibilidade%20e%20planos%3F" target="_blank" rel="noopener">
+            Quero me conectar
           </a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- HERO -->
   <header class="hero">
     <div class="wrap">
       <div class="heroGrid">
@@ -463,7 +581,7 @@
           </p>
 
           <div class="heroCtas">
-            <a class="btn primary" href="#whatsapp">
+            <a class="btn primary" href="https://wa.me/5543988188281?text=Ol%C3%A1%21%20Quero%20consultar%20disponibilidade%20e%20planos%20da%20Connectiva." target="_blank" rel="noopener">
               <span class="icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path><path d="M12 5v14"></path>
@@ -474,7 +592,10 @@
             <a class="btn" href="#planos">
               <span class="icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 19h16"></path><path d="M4 15h16"></path><path d="M4 11h16"></path><path d="M4 7h16"></path>
+                  <path d="M4 19h16"></path>
+                  <path d="M4 15h16"></path>
+                  <path d="M4 11h16"></path>
+                  <path d="M4 7h16"></path>
                 </svg>
               </span>
               Ver planos
@@ -497,7 +618,7 @@
           </div>
         </div>
 
-        <div class="heroCard">
+        <div class="heroCard" aria-label="Demonstração visual do posicionamento Connectiva">
           <div class="mock">
             <div class="beam" aria-hidden="true"></div>
             <div class="grid" aria-hidden="true"></div>
@@ -514,11 +635,25 @@
               <ellipse cx="360" cy="150" rx="110" ry="130" fill="none" stroke="rgba(255,106,0,.30)" stroke-width="1.7"/>
               <circle cx="437" cy="112" r="4.5" fill="rgba(77,227,255,.8)"/>
               <circle cx="292" cy="198" r="4.5" fill="rgba(255,106,0,.85)"/>
+              <path d="M90 295 C 200 235, 270 330, 360 285 C 430 250, 510 290, 560 260" fill="none" stroke="rgba(255,255,255,.20)" stroke-width="2" opacity=".65"/>
+              <path d="M70 315 C 180 265, 260 355, 360 305 C 440 270, 520 315, 580 290" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2" opacity=".55"/>
             </svg>
 
             <div class="stats">
-              <div class="pill"><div class="orb" aria-hidden="true"></div><div><strong>Fibra • Rural • Empresarial</strong><span>Rede projetada para estabilidade</span></div></div>
-              <div class="pill"><div class="orb" aria-hidden="true"></div><div><strong>Suporte local</strong><span>Atendimento humano e rápido</span></div></div>
+              <div class="pill">
+                <div class="orb" aria-hidden="true"></div>
+                <div>
+                  <strong>Fibra • Rural • Empresarial</strong>
+                  <span>Rede projetada para estabilidade</span>
+                </div>
+              </div>
+              <div class="pill">
+                <div class="orb" aria-hidden="true"></div>
+                <div>
+                  <strong>Suporte local</strong>
+                  <span>Atendimento humano e rápido</span>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -527,6 +662,7 @@
     </div>
   </header>
 
+  <!-- BENEFÍCIOS -->
   <section id="beneficios">
     <div class="wrap">
       <h3 class="sectionTitle">Por que escolher a Connectiva</h3>
@@ -534,22 +670,42 @@
 
       <div class="cards">
         <div class="card">
-          <div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="M8 8h8v8H8z"></path></svg></div>
+          <div class="badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16v16H4z"></path>
+              <path d="M8 8h8v8H8z"></path>
+            </svg>
+          </div>
           <h3>Infraestrutura própria</h3>
           <p>Rede planejada para estabilidade, expansão e alta disponibilidade, com padrão profissional de telecom.</p>
         </div>
+
         <div class="card">
-          <div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <div class="badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
           <h3>Estabilidade e segurança</h3>
           <p>Monitoramento e rotas inteligentes para reduzir quedas e garantir uma experiência consistente.</p>
         </div>
+
         <div class="card">
-          <div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72"></path></svg></div>
+          <div class="badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72"></path>
+            </svg>
+          </div>
           <h3>Suporte humano</h3>
           <p>Atendimento local, rápido e direto. Sem robôs. Sem enrolação. Você fala com gente.</p>
         </div>
+
         <div class="card">
-          <div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h6l3 8 4-16 3 8h2"></path></svg></div>
+          <div class="badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12h6l3 8 4-16 3 8h2"></path>
+            </svg>
+          </div>
           <h3>Presença regional</h3>
           <p>Conectamos cidades e propriedades rurais. A Connectiva é infraestrutura e parceiro do agro.</p>
         </div>
@@ -557,6 +713,7 @@
     </div>
   </section>
 
+  <!-- PLANOS -->
   <section id="planos">
     <div class="wrap">
       <h3 class="sectionTitle">Planos para cada realidade</h3>
@@ -565,21 +722,27 @@
       <div class="plans">
         <div class="plan">
           <div class="planTop">
-            <div><div class="tag">Residencial</div><div class="price"><strong>250</strong><span>Mega</span></div></div>
+            <div>
+              <div class="tag">Residencial</div>
+              <div class="price"><strong>250</strong><span>Mega</span></div>
+            </div>
             <div class="tag">Mais vendido</div>
           </div>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Wi‑Fi bem configurado (orientação)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Wi-Fi bem configurado (orientação)</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Instalação rápida</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Suporte humano</li>
           </ul>
-          <a class="btn primary" href="#whatsapp">Quero este plano</a>
+          <a class="btn primary" href="https://wa.me/5543988188281?text=Ol%C3%A1%21%20Quero%20o%20plano%20Residencial%20250%20Mega.%20Pode%20ver%20viabilidade%20para%20mim%3F" target="_blank" rel="noopener">Quero este plano</a>
           <div class="fine">*Valores e disponibilidade podem variar conforme a localidade. Ajuste os preços finais aqui.</div>
         </div>
 
         <div class="plan featured">
           <div class="planTop">
-            <div><div class="tag hot">Empresarial</div><div class="price"><strong>Prime</strong><span>+</span></div></div>
+            <div>
+              <div class="tag hot">Empresarial</div>
+              <div class="price"><strong>Prime</strong><span>+</span></div>
+            </div>
             <div class="tag hot">SLA • IP Fixo</div>
           </div>
           <ul>
@@ -587,27 +750,31 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prioridade de atendimento</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Monitoramento e suporte proativo</li>
           </ul>
-          <a class="btn primary" href="#whatsapp">Falar com consultor</a>
+          <a class="btn primary" href="https://wa.me/5543988188281?text=Ol%C3%A1%21%20Quero%20um%20plano%20Empresarial%20com%20SLA%20e%20op%C3%A7%C3%A3o%20de%20IP%20fixo.%20Pode%20me%20orientar%3F" target="_blank" rel="noopener">Falar com consultor</a>
           <div class="fine">*Aqui entra sua tabela real de empresarial (Start/Prime/Infinity) quando você quiser.</div>
         </div>
 
         <div class="plan">
           <div class="planTop">
-            <div><div class="tag">Rural</div><div class="price"><strong>Link</strong><span>dedicado</span></div></div>
+            <div>
+              <div class="tag">Rural</div>
+              <div class="price"><strong>Link</strong><span>dedicado</span></div>
+            </div>
             <div class="tag">Campo conectado</div>
           </div>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Enlace ponto‑a‑ponto</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Wi‑Fi para sede e casas</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Enlace ponto-a-ponto</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Wi-Fi para sede e casas</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Projeto sob medida</li>
           </ul>
-          <a class="btn primary" href="#whatsapp">Quero internet no campo</a>
+          <a class="btn primary" href="https://wa.me/5543988188281?text=Ol%C3%A1%21%20Quero%20internet%20no%20campo%20(com%20link%20dedicado%20e%20Wi-Fi%20na%20sede).%20Pode%20me%20ajudar%20com%20um%20or%C3%A7amento%3F" target="_blank" rel="noopener">Quero internet no campo</a>
           <div class="fine">*Perfeito para fazendas, sítios, cooperativas e áreas remotas.</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- INFRA/CAMPO -->
   <section id="infra">
     <div class="wrap">
       <h3 class="sectionTitle">Infraestrutura que dá confiança</h3>
@@ -628,7 +795,7 @@
           <h3>Connectiva no Campo</h3>
           <p>Conectividade rural é infraestrutura — e ela destrava produtividade.</p>
           <ul class="bullets">
-            <li><span class="mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span> Link dedicado PTP e Wi‑Fi para sede</li>
+            <li><span class="mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span> Link dedicado PTP e Wi-Fi para sede</li>
             <li><span class="mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="M7 4h10l2 4H5l2-4Z"></path><path d="M5 8v9a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8"></path></svg></span> Automação, gestão e monitoramento</li>
             <li><span class="mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 0 1 18 0Z"></path><path d="M12 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path></svg></span> Presença em áreas remotas da região</li>
           </ul>
@@ -637,6 +804,7 @@
     </div>
   </section>
 
+  <!-- DEPOIMENTOS -->
   <section>
     <div class="wrap">
       <h3 class="sectionTitle">O que dizem na prática</h3>
@@ -645,20 +813,41 @@
       <div class="testis">
         <div class="quote">
           <p>“A internet ficou estável de verdade. Atendimento rápido e sem enrolação.”</p>
-          <div class="who"><div class="avatar" aria-hidden="true"></div><div><strong>Cliente Residencial</strong><span>Cândido de Abreu • PR</span></div></div>
+          <div class="who">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <strong>Cliente Residencial</strong>
+              <span>Cândido de Abreu • PR</span>
+            </div>
+          </div>
         </div>
+
         <div class="quote">
           <p>“No comércio, IP fixo e prioridade de suporte fizeram diferença. Recomendo.”</p>
-          <div class="who"><div class="avatar" aria-hidden="true"></div><div><strong>Cliente Empresarial</strong><span>Região • PR</span></div></div>
+          <div class="who">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <strong>Cliente Empresarial</strong>
+              <span>Região • PR</span>
+            </div>
+          </div>
         </div>
+
         <div class="quote">
-          <p>“Levou internet para a propriedade e melhorou o Wi‑Fi da sede. Agora a gestão flui.”</p>
-          <div class="who"><div class="avatar" aria-hidden="true"></div><div><strong>Cliente Rural</strong><span>Zona Rural • PR</span></div></div>
+          <p>“Levou internet para a propriedade e melhorou o Wi-Fi da sede. Agora a gestão flui.”</p>
+          <div class="who">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <strong>Cliente Rural</strong>
+              <span>Zona Rural • PR</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- COBERTURA -->
   <section id="cobertura">
     <div class="wrap">
       <h3 class="sectionTitle">Cobertura e contato</h3>
@@ -701,12 +890,12 @@
             <span class="chip">Empresas</span>
           </div>
 
-          <div id="whatsapp" style="margin-top:10px;">
-            <a class="btn primary" href="https://wa.me/55SEUNUMEROAQUI?text=Ol%C3%A1%21%20Quero%20consultar%20disponibilidade%20e%20planos%20da%20Connectiva." target="_blank" rel="noopener">
-              Falar no WhatsApp agora
+          <div style="margin-top:10px;">
+            <a class="btn primary" href="https://wa.me/5543988188281?text=Ol%C3%A1%21%20Quero%20consultar%20disponibilidade%20na%20minha%20localidade.%20Meu%20bairro%2Fcomunidade%20%C3%A9%3A%20_____" target="_blank" rel="noopener">
+              Consultar no WhatsApp
             </a>
             <div class="fine">
-              ⚠️ Troque <strong>SEUNUMEROAQUI</strong> pelo seu número com DDD (ex.: 5542999999999). Você também pode mudar a mensagem do link.
+              WhatsApp: <strong>(43) 98818-8281</strong>
             </div>
           </div>
         </div>
@@ -714,17 +903,18 @@
 
       <div class="cta" style="margin-top: 14px;">
         <div>
-          <h3>Pronto para ter internet de verdade?</h3>
-          <p>Sem enrolação: você chama no WhatsApp, a gente confirma viabilidade e agenda a instalação.</p>
+          <h3>Pronto para se conectar?</h3>
+          <p>Você chama no WhatsApp, a gente confirma viabilidade e agenda a instalação.</p>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn primary" href="#whatsapp">Consultar agora</a>
+          <a class="btn primary" href="https://wa.me/5543988188281?text=Ol%C3%A1%21%20Quero%20me%20conectar%20com%20a%20Connectiva.%20Pode%20me%20ajudar%20com%20disponibilidade%20e%20planos%3F" target="_blank" rel="noopener">Quero me conectar</a>
           <a class="btn" href="#planos">Ver planos</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <div class="foot">
@@ -736,13 +926,13 @@
               <div class="muted" style="font-size:12px; font-weight:700; margin-top:4px;">Infraestrutura • Campo • Pessoas</div>
             </div>
           </div>
-          <p>Site protótipo (home). Conteúdo e valores são exemplos — feito para você avaliar visual, hierarquia e posicionamento.</p>
+          <p>Protótipo (home). Conteúdo e valores são exemplos — feito para você avaliar visual, hierarquia e posicionamento.</p>
           <div class="small">© <span id="year"></span> Connectiva. Todos os direitos reservados.</div>
         </div>
 
         <div>
           <h4>Contato</h4>
-          <p>WhatsApp: <span class="muted">(xx) xxxxx-xxxx</span></p>
+          <p>WhatsApp: <span class="muted">(43) 98818-8281</span></p>
           <p>Endereço: <span class="muted">Sua cidade • PR</span></p>
           <p>Instagram: <span class="muted">@connectiva</span></p>
         </div>
@@ -763,3 +953,8 @@
   </script>
 </body>
 </html>
+"""
+
+out = Path("/mnt/data/index.html")
+out.write_text(html, encoding="utf-8")
+out.as_posix()
