@@ -64,3 +64,33 @@
   color:white;
   font-weight:600;
 }
+
+.solutionsGrid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:24px;
+  margin-top:30px;
+}
+
+.solutionCard{
+  padding:28px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.02);
+  transition:0.3s;
+}
+
+.solutionCard:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,0.15);
+}
+
+.solutionCard h3{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.solutionCard p{
+  color:#a7b2cc;
+  line-height:1.6;
+}
