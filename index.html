@@ -39,17 +39,16 @@
   content:"";
   position:fixed;
   inset:0;
-
-  background-image:
-    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-
-  background-size: 60px 60px;
-
-  opacity:.15;
   pointer-events:none;
+  opacity:.08;
 
-  mask-image: radial-gradient(circle at 40% 30%, black 0%, transparent 70%);
+  /* noise sutil (sem linhas) */
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.06), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,.04), transparent 40%),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,.05), transparent 45%);
+
+  mask-image: radial-gradient(circle at 40% 25%, black 0%, transparent 70%);
 }
     @keyframes glowMove{
   0%{transform:translateY(0)}
