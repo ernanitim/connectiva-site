@@ -51,6 +51,24 @@
 
   mask-image: radial-gradient(circle at 40% 30%, black 0%, transparent 70%);
 }
+    @keyframes glowMove{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-40px)}
+  100%{transform:translateY(0)}
+}
+
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:
+  radial-gradient(800px 400px at 50% 80%, rgba(255,106,0,.08), transparent 70%);
+
+  animation:glowMove 12s ease-in-out infinite;
+
+  pointer-events:none;
+}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
 
