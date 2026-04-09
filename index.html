@@ -1178,7 +1178,27 @@
   position: relative;
 }
 
-/* divisórias sutis */
+    /* Trust Bar Premium (linha contínua) */
+.trustBar{
+  margin-top: 24px;
+  display:flex;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+}
+
+.trustBar div{
+  flex:1;
+  padding: 14px 12px;
+  text-align: center;
+  font-weight: 750;
+  font-size: 13px;
+  color: rgba(232,238,252,.9);
+  position: relative;
+}
+
+/* divisórias */
 .trustBar div:not(:last-child)::after{
   content:"";
   position:absolute;
@@ -1187,6 +1207,27 @@
   height:60%;
   width:1px;
   background: rgba(255,255,255,.06);
+}
+
+/* check estilizado Connectiva */
+.checkMark{
+  color: #4de3ff;
+  margin-right:6px;
+}
+
+/* mobile */
+@media (max-width: 880px){
+  .trustBar{
+    flex-direction: column;
+  }
+
+  .trustBar div:not(:last-child)::after{
+    display:none;
+  }
+
+  .trustBar div:not(:last-child){
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
 }
   </style>
 </head>
