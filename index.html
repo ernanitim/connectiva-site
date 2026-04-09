@@ -1168,35 +1168,35 @@
     .waFloat{background: rgba(8,14,24,.86); border-color: rgba(255,255,255,.12);}
     footer{background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.18));}
     }
-    .trustBar{
+.trustBar{
   margin-top: 24px;
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.trustItem{
+  display:flex;
   border-radius: 16px;
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,.08);
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.04),
-    rgba(255,255,255,.015)
-  );
-  padding: 14px 12px;
+  background: rgba(255,255,255,.02);
+}
+
+.trustBar div{
+  flex:1;
+  padding: 14px 10px;
   text-align: center;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 13px;
-  color: rgba(232,238,252,.92);
-  letter-spacing: .2px;
-  transition: .2s ease;
+  color: rgba(232,238,252,.9);
+  position: relative;
 }
 
-.trustItem:hover{
-  border-color: rgba(77,227,255,.25);
-  transform: translateY(-2px);
+/* divisórias sutis */
+.trustBar div:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:20%;
+  height:60%;
+  width:1px;
+  background: rgba(255,255,255,.06);
 }
-
   </style>
 </head>
 
@@ -1273,10 +1273,10 @@
           </div>
 
           <div class="trustBar">
-  <div class="trustItem">✔ Instalação organizada</div>
-  <div class="trustItem">✔ Suporte humano</div>
-  <div class="trustItem">✔ Presença regional</div>
-  <div class="trustItem">✔ Rede com padrão profissional</div>
+  <div>✔ Instalação organizada</div>
+  <div>✔ Suporte humano</div>
+  <div>✔ Presença regional</div>
+  <div>✔ Rede com padrão profissional</div>
 </div>
         </div>
 
