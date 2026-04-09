@@ -1167,6 +1167,35 @@
     .coverageContent .btn{min-width: fit-content;}
     .waFloat{background: rgba(8,14,24,.86); border-color: rgba(255,255,255,.12);}
     footer{background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.18));}
+    }
+    .trustBar{
+  margin-top: 24px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.trustItem{
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.015)
+  );
+  padding: 14px 12px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 13px;
+  color: rgba(232,238,252,.92);
+  letter-spacing: .2px;
+  transition: .2s ease;
+}
+
+.trustItem:hover{
+  border-color: rgba(77,227,255,.25);
+  transform: translateY(-2px);
+}
 
   </style>
 </head>
@@ -1243,12 +1272,12 @@
             </a>
           </div>
 
-          <div class="micro">
-            <div><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Instalação rápida</div>
-            <div><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Suporte humano</div>
-            <div><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Rede estável</div>
-            <div><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Presença regional</div>
-          </div>
+          <div class="trustBar">
+  <div class="trustItem">✔ Instalação organizada</div>
+  <div class="trustItem">✔ Suporte humano</div>
+  <div class="trustItem">✔ Presença regional</div>
+  <div class="trustItem">✔ Rede com padrão profissional</div>
+</div>
         </div>
 
         <div class="heroCard" aria-label="Demonstração visual do posicionamento Connectiva">
